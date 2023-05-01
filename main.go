@@ -70,7 +70,9 @@ func server() {
 		}
 	})
 
-	http.ListenAndServe(":8001", nil)
+	if err := http.ListenAndServe(":8001", nil); err != nil {
+		panic(err)
+	}
 }
 
 func main() {
