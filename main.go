@@ -56,7 +56,7 @@ func getWalletAvailable(merchantKey string) (float64, error) {
 func server() {
 	http.HandleFunc("/check", func(w http.ResponseWriter, r *http.Request) {
 		min, err := strconv.ParseFloat(r.URL.Query().Get("min"), 64)
-		available, err := getWalletAvailable("e33ba1e2b9352bf29e16")
+		available, err := getWalletAvailable(r.URL.Query().Get("key"))
 		if err != nil {
 			panic(err)
 		}
